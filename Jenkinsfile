@@ -21,7 +21,11 @@ node {
 
     stage 'deploy on kubernetes'
     sh "kubectl version"
-    sh "kubectl apply -f deployment.yml"
+    stage('Apply Kubernetes files') {
+        withKubeConfig([credentialsId: 'diego', serverUrl: 'https://192.168.2.127:6443']) {
+          sh 'kubectl apply -f deployment.yml'
+        }
+    }
 
   }catch(e){
     throw e;
