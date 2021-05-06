@@ -19,6 +19,9 @@ node {
     stage 'Artifact'
     step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
 
+    stage 'deploy on kubernetes'
+    sh "kubectl apply -f deployment.yml"
+
   }catch(e){
     throw e;
   }
