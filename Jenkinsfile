@@ -24,6 +24,7 @@ node {
     stage('Deploy App') {
       steps {
         script {
+          sh "kubectl version"
           kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "mykubeconfig")
         }
       }
