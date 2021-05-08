@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: blog-namespace
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,16 +19,16 @@ spec:
         app: blog
     spec:
       containers:
-        - name: blog-container
-          image: rengifolu/backend-blog:BUILD_NUMBER
-          imagePullPolicy: Always
-          ports:
-            - name: app
-              containerPort: 8085
-              protocol: TCP
+      - name: blog-container
+        image: rengifolu/backend-blog:BUILD_NUMBER
+        imagePullPolicy: Always
+        ports:
+          - name: app
+            containerPort: 8085
+            protocol: TCP
       imagePullSecrets:
-        - name: <your-secret-name>
-
+      - name: <your-secret-name>
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -42,7 +42,7 @@ spec:
     - port: 8085
   selector:
     app: blog
-
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
