@@ -41,7 +41,9 @@ pipeline {
         }
 
         stage('Artifact') {
-           step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
+            steps{
+               step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
+            }
         }
 
 
