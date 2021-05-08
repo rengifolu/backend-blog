@@ -23,9 +23,9 @@ spec:
         image: rengifolu/backend-blog:BUILD_NUMBER
         imagePullPolicy: Always
         ports:
-          - name: app
-            containerPort: 8085
-            protocol: TCP
+        - name: app
+          containerPort: 8085
+          protocol: TCP
       imagePullSecrets:
       - name: <your-secret-name>
 ---
