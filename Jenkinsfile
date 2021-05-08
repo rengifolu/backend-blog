@@ -26,6 +26,7 @@ node {
         script {
           sh "kubectl version"
           kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "mykubeconfig")
+
         }
       }
     }
