@@ -9,7 +9,6 @@ pipeline {
     // tools {nodejs "NodeJS"}
     stages {
 
-
         stage('Git') {
             steps {
                 checkout scm
@@ -22,15 +21,21 @@ pipeline {
         }
 
         stage('test') {
-           sh "mvn test"
+        steps {
+        sh "mvn test"
+          }
         }
 
         stage('package') {
+           steps{
            sh "mvn package"
+           }
         }
 
         stage('report') {
-           step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+            steps{
+               step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+            }
         }
 
         stage('Artifact') {
