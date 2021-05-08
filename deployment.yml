@@ -1,6 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: blog-namespace
-  labels:
-    name: blog-namespace
+  name: curso-namespace
