@@ -90,12 +90,18 @@ pipeline {
         }
 
 
-        stage('Deploy App') {
+        stage('Deploy App on kubernetes') {
             steps {
                 script {
 
-                  sh "kubectl version"
-                  kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "mykubeconfig")
+                    def yamlText = readFile "deployment.yml"
+                    yamlText = yamlText.replaceAll("BUILD_NUMBER", "${BUILD_NUMBER}")
+                    echo yamlText
+
+                    writeFile file: "deployment.yml", text: yamlText
+                    kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "mykubeconfig")
+
+                    //sh 'kubectl apply -f deployment.yaml'
 
                 }
             }
