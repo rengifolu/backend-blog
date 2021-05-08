@@ -16,8 +16,10 @@ pipeline {
         }
 
         stage('check env') {
+          steps{
            sh "mvn -v"
            sh "java -version"
+          }
         }
 
         stage('test') {
