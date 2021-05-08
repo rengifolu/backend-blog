@@ -19,9 +19,9 @@ spec:
         app: blog
     spec:
       containers:
-      - name: blog-container
-        image: rengifolu/backend-blog:BUILD_NUMBER
+      - image: rengifolu/backend-blog:BUILD_NUMBER
         imagePullPolicy: Always
+        name: blog-container
         ports:
         - name: app
           containerPort: 8085
