@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: blog-container
-          image: rengifolu/backend-blog
+          image: rengifolu/backend-blog:BUILD_NUMBER
           imagePullPolicy: Always
           ports:
             - name: sbapp
