@@ -50,13 +50,12 @@ pipeline {
         stage('Building our image') {
 
             steps {
-
+                     sh "ls -l"
                 script {
-
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
 
                 }
-
+                sh "ls -l"
             }
 
         }
@@ -66,7 +65,7 @@ pipeline {
             steps {
 
                 script {
-
+                     sh "ls -l"
                     docker.withRegistry( '', registryCredential ) {
 
                         dockerImage.push()
