@@ -22,3 +22,5 @@ services:
       - POSTGRES_PASSWORD=123
 
   # docker run --name postgres -e POSTGRES_PASSWORD=123 -d docker-spring-boot-postgres:latest
+  # docker run -p 8080:8080 docker pull rengifolu/backend-blog:41
+  # docker run --name frontend -d -p 8080:80 rengifolu/miweb:7
