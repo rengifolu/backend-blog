@@ -90,7 +90,7 @@ pipeline {
         }
 
 
-        stage('Deploy App on kubernetes') {
+        /*stage('Deploy App on kubernetes') {
             steps {
                 script {
 
@@ -105,7 +105,7 @@ pipeline {
 
                 }
             }
-        }
+        }*/
     }
 }
 
