@@ -50,7 +50,7 @@ pipeline {
         stage('Building our image') {
 
             steps {
-                     sh "ls -l /target"
+                     sh "ls -l target"
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
 
