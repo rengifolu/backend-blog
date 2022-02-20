@@ -7,6 +7,9 @@ pipeline {
     }
 
     // tools {nodejs "NodeJS"}
+     tools {
+        maven 'M3'
+      }
     stages {
 
         stage('Git') {

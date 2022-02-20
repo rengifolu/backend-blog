@@ -5,3 +5,6 @@
 
 # backend-blog
 # docker run --name backend-blog -p 8085:8085 rengifolu/backend-blog
+
+# docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mypassword -d -p 5432:5432 postgres
+
